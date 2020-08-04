@@ -1,7 +1,9 @@
-const request = require('request');
+const request = require('request')
+require('dotenv').config()
+const appid = process.env.APP_ID
 
 const forecast = (lat,lon,cb) => {
-    const oneCall = "https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon="+lon+"&appid=af7079c635c972cb7c693b97900efca4&units=metric&exclude=hourly,minutely"
+    const oneCall = "https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon="+lon+"&appid="+appid+"&units=metric&exclude=hourly,minutely"
 
     request({url: oneCall, json:true}, (error,{body})=>{
         if(error){
